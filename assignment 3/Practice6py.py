@@ -8,17 +8,17 @@ class FileManager:
         self.filename = filename
 
     def check_file(self):
-        print("Checking file...")
+        print("Checking file")
 
         if os.path.exists(self.filename):
             print(f"File found: {self.filename}")
             return True
         else:
-            print(f"Error: {self.filename} not found. Please download the file from LMS.")
+            print(f"Error: {self.filename} not found.")
             return False
 
     def create_output_folder(self, folder="output"):
-        print("Checking output folder...")
+        print("Checking output folder")
 
         if os.path.exists(folder):
             print(f"Output folder already exists: {folder}/")
@@ -33,7 +33,7 @@ class DataLoader:
         self.students = []
 
     def load(self):
-        print("Loading data...")
+        print("Loading data")
 
         try:
             with open(self.filename, encoding="utf-8") as file:
@@ -81,7 +81,7 @@ class DataAnalyser:
                 valid_students.append(student)
 
             except ValueError:
-                print(f"Warning: could not convert value for student {student['student_id']} — skipping row.")
+                print(f"Warning: could not convert value for student {student['student_id']} ")
 
             except KeyError:
                 print("Warning: missing column — skipping row.")
@@ -153,7 +153,7 @@ class DataAnalyser:
             print("Students assignment > 90:", len(good_assignments))
 
         except ValueError:
-            print("Error: some numeric values cannot be converted to float.")
+            print("Error: some num values cannot be converted to float")
 
         except KeyError as e:
             print(f"Error: missing column {e}")
